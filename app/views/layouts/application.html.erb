@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ToolChest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <% if current_user %>
+    <%= current_user.username %>
+  <% end %>
+  <% unless most_recent_tool.nil?  %>
+    <p><strong>Newest tool:</strong> <%= most_recent_tool.name  %></p>
+  <% end %>
+  <% flash.each do |type, msg| %>
+    <%= content_tag :div, msg, class: "flash_#{type}" %>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<h1>Tools!</h1>
+
+<ul>
+  <% @tools.each do |tool| %>
+    <!-- <li><%= tool.name %> (<%= tool.use %>)</li> -->
+    <!-- <li><%= link_to(tool.name, tool_path(tool.id)) %> (<%= tool.use %>)</li> -->
+    <!-- <li><%= link_to(tool.name, tool_path(tool)) %> (<%= tool.use %>)</li> -->
+    <li><%= link_to(tool.name, tool) %> (<%= tool.use %>) -- <%= link_to("edit", edit_tool_path(tool)) %>
+      -- <%= link_to("delete", tool_path(tool), :method => :delete) %></li>
+
+  <% end %>
+</ul>
+
+<%= link_to "New tool!", new_tool_path %>
