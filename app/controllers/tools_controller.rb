@@ -16,10 +16,10 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user_id = current_user.id
     if @tool.save
       flash[:notice] = "Tool #{@tool.name} created!"
       redirect_to tools_path
-      # redirect_to @tool
     else
       flash[:error] = @tool.errors.full_messages.join(", ")
       render :new

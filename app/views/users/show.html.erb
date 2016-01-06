@@ -1,1 +1,10 @@
+<div id="tools">
+  <ul>
+    <% @user.tools.each do |tool| %>
+      <li><%= tool.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+
 <%= link_to "Logout", logout_path, method: :delete %>
