@@ -1,0 +1,11 @@
+<h1>Tools!</h1>
+
+<ul>
+  <% @tools.each do |tool| %>
+    <li><%= link_to(tool.name, tool) %> (<%= tool.use %>) -- <%= link_to("edit", edit_admin_tool_path(tool)) %>
+      -- <%= link_to("delete", admin_tool_path(tool), :method => :delete) %></li>
+
+  <% end %>
+</ul>
+
+<%= link_to "New tool!", new_admin_tool_path %>

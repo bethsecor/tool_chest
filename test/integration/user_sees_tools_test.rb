@@ -21,18 +21,18 @@ class UserSeesToolsTest < ActionDispatch::IntegrationTest
       assert page.has_content?("#{tool_2.name}")
     end
 
-    visit new_tool_path
-    fill_in "Name", with: "Pliers"
-    fill_in "Use", with: "aaggfls"
-    click_button "Create Tool"
-
-    visit user_path(user.id)
-    # save_and_open_page
-    within('#tools') do
-      assert page.has_content?("#{tool_1.name}")
-      assert page.has_content?("#{tool_2.name}")
-      assert page.has_content?("Pliers")
-      refute page.has_content?("Screwdriver")
-    end
+    # visit new_tool_path
+    # fill_in "Name", with: "Pliers"
+    # fill_in "Use", with: "aaggfls"
+    # click_button "Create Tool"
+    #
+    # visit user_path(user.id)
+    # # save_and_open_page
+    # within('#tools') do
+    #   assert page.has_content?("#{tool_1.name}")
+    #   assert page.has_content?("#{tool_2.name}")
+    #   assert page.has_content?("Pliers")
+    #   refute page.has_content?("Screwdriver")
+    # end
   end
 end
