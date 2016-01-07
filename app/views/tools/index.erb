@@ -1,7 +1,9 @@
 <h1>Tools!</h1>
 
-<ul>
-  <% @tools.each do |tool| %>
-    <li><%= link_to(tool.name, tool) %> (<%= tool.use %>)
-  <% end %>
-</ul>
+<div id="tools">
+  <ul>
+    <% @tools.each do |tool| %>
+      <li><%= link_to(tool.name, tool) %> (<%= tool.use %>)
+    <% end %>
+  </ul>
+</div>

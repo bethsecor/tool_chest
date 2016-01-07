@@ -3,7 +3,7 @@ class ToolsController < ApplicationController
 
   def index
     # @tools = Tool.all
-    if current_user
+    unless current_user.tools.empty?
       @tools = current_user.tools
       session[:most_recent_tool_id] = @tools.last.id
     else

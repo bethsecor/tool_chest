@@ -10,13 +10,14 @@ class GuestSignsUpForAccountTest < ActionDispatch::IntegrationTest
     click_on "Create Account"
 
     assert_equal current_path, new_user_path
-
     fill_in "Username", with: "Ruby"
     fill_in "Password", with: "12345"
     fill_in "Password confirmation", with: "12345"
     click_button "Create Account"
 
-    assert_equal current_path, user_path(User.last)
+    Tool.create(name: "map", use: "stuff", user_id: 1)
+
+    assert_equal current_path, tools_path
     assert page.has_content?("Ruby")
     assert page.has_content?("Account created.")
   end
