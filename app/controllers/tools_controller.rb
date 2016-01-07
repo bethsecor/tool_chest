@@ -3,8 +3,12 @@ class ToolsController < ApplicationController
 
   def index
     # @tools = Tool.all
-    @tools = current_user.tools
-    session[:most_recent_tool_id] = @tools.last.id
+    if current_user
+      @tools = current_user.tools
+      session[:most_recent_tool_id] = @tools.last.id
+    else
+      @tools = []
+    end
   end
 
   def show
